@@ -2,16 +2,12 @@ require 'pg'
 
 class Link
   def self.all
-      array = []
+      connection = PG.connect :dbname => 'bookmark_manager'
 
-      con = PG.connect :dbname => 'bookmark_manager'
+      result = connection.exec "SELECT * FROM links"
 
-      rs = con.exec "SELECT * FROM links"
-
-      rs.each do |row|
-        array << "%s" % [ row['url'] ]
+      result.map do |row|
+        row['url']
       end
-
-      array
   end
 end
