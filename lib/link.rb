@@ -1,5 +1,17 @@
+require 'pg'
+
 class Link
   def self.all
-    ['Bookmark 1', 'Bookmark 2', 'Bookmark 3']
+      array = []
+
+      con = PG.connect :dbname => 'bookmark_manager'
+
+      rs = con.exec "SELECT * FROM links"
+
+      rs.each do |row|
+        array << "%s" % [ row['url'] ]
+      end
+
+      array
   end
 end
