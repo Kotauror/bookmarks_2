@@ -1,10 +1,10 @@
-require 'list'
+require 'link'
 
-describe List do
+describe Link do
   describe '#all' do
     it 'returns all bookmarks' do
       expect(subject.all).to eq "Bookmark 1\nBookmark 2\nBookmark 3\n"
-    end
+    endli
   end
 
   # describe '#print' do
