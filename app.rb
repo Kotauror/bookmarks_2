@@ -4,7 +4,20 @@ require './lib/link.rb'
 
 class BookmarkManager < Sinatra::Base
   get '/' do
-    @link = Link
     erb(:index)
+  end
+
+  get '/add' do
+    erb(:add)
+  end
+
+  post '/confirm-addition' do 
+    @url = params[:url]
+    redirect '/display'
+  end
+
+  get '/display' do 
+    @links = Link.all
+    erb(:display)
   end
 end
