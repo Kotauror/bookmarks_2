@@ -13,4 +13,14 @@ class Link
         row['url']
       end
   end
+
+  def self.add(website)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect :dbname => 'bookmark_manager_test'
+    else
+      connection = PG.connect :dbname => 'bookmark_manager'
+    end
+      result = connection.exec "INSERT INTO links (url) VALUES('#{website}')"
+  end
+
 end

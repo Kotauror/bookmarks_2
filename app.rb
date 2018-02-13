@@ -11,12 +11,13 @@ class BookmarkManager < Sinatra::Base
     erb(:add)
   end
 
-  post '/confirm-addition' do 
-    @url = params[:url]
+  post '/confirm-addition' do
+    # @url = params[:url]
+    Link.add(params[:url])
     redirect '/display'
   end
 
-  get '/display' do 
+  get '/display' do
     @links = Link.all
     erb(:display)
   end
