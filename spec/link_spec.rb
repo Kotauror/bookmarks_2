@@ -12,6 +12,11 @@ describe Link do
       Link.add("http://www.hannahhannahhannah.com")
       expect(Link.all).to include "http://www.hannahhannahhannah.com"
     end
+
+    it 'only creates link if the URL is valid' do
+      Link.add('TEST')
+      expect(Link.all).not_to include 'TEST'
+    end
   end
 
 end
