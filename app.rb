@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require './lib/link.rb'
-# TODO: - require model files
+require './database_connection_setup'
 
 class BookmarkManager < Sinatra::Base
   get '/' do
@@ -12,7 +12,6 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/confirm-addition' do
-    # @url = params[:url]
     Link.add(params[:url])
     redirect '/display'
   end
