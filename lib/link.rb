@@ -34,7 +34,7 @@ class Link
   private
 
   def self.is_url?(url)
-    url =~ /\A#{URI::regexp(['http', 'https'])}\z/
+    url[0..6] == 'http://' || url[0..2] == 'www'
   end
 
   def self.is_title?(title)
