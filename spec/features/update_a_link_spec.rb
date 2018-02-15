@@ -1,7 +1,7 @@
 feature 'update links' do
   scenario 'user wants to update an existing link' do
     visit '/'
-    click_button('update bookmark')
+    click_button('Update bookmark')
     fill_in('title', with: 'Google')
     click_button('Submit')
     fill_in('new_title', with: 'Search Engine')
@@ -12,7 +12,7 @@ feature 'update links' do
 
   scenario 'user wants to update a nonexisting link' do
     visit '/'
-    click_button('update bookmark')
+    click_button('Update bookmark')
     fill_in('title', with: 'Cats')
     click_button('Submit')
     expect(page).to have_content 'This links is not it the database'
@@ -20,7 +20,7 @@ feature 'update links' do
 
   scenario 'user provides an invalid url' do
     visit '/'
-    click_button('update bookmark')
+    click_button('Update bookmark')
     fill_in('title', with: 'Google')
     click_button('Submit')
     fill_in('new_title', with: 'Search Engine')
