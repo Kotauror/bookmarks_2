@@ -1,6 +1,6 @@
 feature 'validate new links' do
   scenario 'the link must be a valid url' do
-    visit '/'
+    visit('/bookmarks')
     click_button 'Add bookmark'
     fill_in 'url', with: 'TEST'
     click_button 'Submit'

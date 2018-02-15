@@ -1,6 +1,6 @@
 feature 'update links' do
   scenario 'user wants to update an existing link' do
-    visit '/'
+    visit('/bookmarks')
     click_button('Update bookmark')
     fill_in('title', with: 'Google')
     click_button('Submit')
@@ -11,7 +11,7 @@ feature 'update links' do
   end
 
   scenario 'user wants to update a nonexisting link' do
-    visit '/'
+    visit('/bookmarks')
     click_button('Update bookmark')
     fill_in('title', with: 'Cats')
     click_button('Submit')
@@ -19,7 +19,7 @@ feature 'update links' do
   end
 
   scenario 'user provides an invalid url' do
-    visit '/'
+    visit('/bookmarks')
     click_button('Update bookmark')
     fill_in('title', with: 'Google')
     click_button('Submit')

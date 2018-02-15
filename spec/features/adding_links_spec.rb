@@ -1,7 +1,7 @@
 
 feature "adding links" do
   scenario "user adds a link" do
-    visit('/')
+    visit('/bookmarks')
     click_button "Add bookmark"
     fill_in "url", with: "http://www.test.com"
     fill_in "title", with: 'TEST'
