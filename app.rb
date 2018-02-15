@@ -17,12 +17,14 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/confirm-addition' do
-      redirect '/display' if Link.add(params[:url])
-      flash[:notice] = "You must submit a valid URL"
+    redirect '/display' if Link.add(params[:url])
+    redirect '/add' if flash[:notice] = "You must submit a valid URL"
   end
 
   get '/display' do
     @links = Link.all
+    @urls = @links.map(&:url)
+    p @links
     erb(:display)
   end
 end

@@ -9,5 +9,9 @@
     <input type="text" name="url" placeholder="enter URL"/>
     <input type="submit" value="submit"/>
   </form>
+  <br><br>
+  <% if flash[:notice] == "You must submit a valid URL" %>
+    <%= flash[:notice] %>
+  <% end %>
 </body>
 </html>

@@ -3,9 +3,16 @@ require_relative './database_connection'
 
 class Link
 
+  attr_reader :url, :id
+
+  def initialize(id, url)
+    @id = id
+    @url = url
+  end
+
   def self.all
     result = DatabaseConnection.query("SELECT * FROM links")
-    result.map { |row| row['url'] }
+    result.map { |hash| Link.new(hash['id'], hash['url']) }
   end
 
   def self.add(website)

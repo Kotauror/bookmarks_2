@@ -3,7 +3,9 @@
 <head>
   <title></title>
 </head>
-<body>
-  <p><%= @links %></p>
+<body><ul>
+  <p><% @urls.each do |url| %>
+    <li><%= url %><br>
+  <% end %></p></ul>
 </body>
 </html>
