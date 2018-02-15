@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <link rel="stylesheet" type="text/css" href="/flash_style.css">
 </head>
 <body>
   <form action="/bookmarks/new" method="POST">
@@ -12,7 +12,7 @@
   </form>
   <br><br>
   <% if flash[:notice] == "You must submit a valid URL" %>
-    <%= flash[:notice] %>
+    <div class="flash"><%= flash[:notice] %></div>
   <% end %>
 </body>
 </html>

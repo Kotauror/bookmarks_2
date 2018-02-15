@@ -1,8 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" type="text/css" href="/flash_style.css">
+  </head>
+  <body>
+
+
 <% if flash[:notice] == "This links is not it the database" %>
-  <%= flash[:notice] %>
+  <div class="flash"><%= flash[:notice] %></div>
 <% end %>
 <p>Enter the title of the bookmark you want to update: </p><br>
   <form action="/bookmarks/title" method="post">
     <input type="text" name="title" placeholder="enter current title">
     <input type="submit" value="Submit">
   </form>
+
+</body>
+</html>
