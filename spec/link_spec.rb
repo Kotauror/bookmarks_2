@@ -1,7 +1,7 @@
 require 'link'
 
 describe Link do
-  describe '#all' do
+  describe '.all' do
     it 'returns all bookmarks' do
       links = Link.all
       urls = links.map(&:url)
@@ -11,7 +11,7 @@ describe Link do
     end
   end
 
-  describe '#add' do
+  describe '.add' do
     it 'adds a link to the database' do
       Link.add("http://www.hannahhannahhannah.com", "Hannah")
       links = Link.all
@@ -23,6 +23,16 @@ describe Link do
       Link.add('TEST', 'TEST')
       expect(Link.all).not_to include 'TEST'
     end
+  end
+
+  describe '.delete' do
+    it 'deletes row from database' do
+      Link.delete('Google')
+      links = Link.all
+      titles = links.map(&:title)
+      expect(titles).not_to include 'Google'
+    end
+
   end
 
 end

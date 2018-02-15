@@ -7,11 +7,15 @@
   <form action="/add" method="GET">
     <input type="submit" value="add bookmark"/>
   </form>
+  <form action="/delete" method="GET">
+    <input type="submit" value="delete bookmark"/>
+  </form>
 
   <ul>
   <p><% @links.each do |link| %>
     <li><a href="<%= link.url %>"><%= link.title %></a><br>
-  <% end %></p></ul>
+  <% end %></p>
+  </ul>
 
 </body>
 </html>

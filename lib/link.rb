@@ -21,10 +21,20 @@ class Link
     DatabaseConnection.query("INSERT INTO links (url, title) VALUES('#{url}', '#{title}')")
   end
 
+  def self.delete(title)
+    return false unless is_title?(title)
+    DatabaseConnection.query("DELETE FROM links WHERE title='#{title}'")
+  end
+
   private
 
   def self.is_url?(url)
     url =~ /\A#{URI::regexp(['http', 'https'])}\z/
+  end
+
+  def self.is_title?(title)
+    result = DatabaseConnection.query("SELECT * FROM links")
+    result.map { |link| link['title'] }.include?(title)
   end
 
 end
