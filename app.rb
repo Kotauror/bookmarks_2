@@ -36,12 +36,12 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/fill_details' do
-    $title = params[:title]
-    erb(:update) if Link.is_title?($title)
+    Link.store_title(params[:title])
+    erb(:update) if Link.is_title?(params[:title])
   end
 
   post '/update-confirmation' do
-    redirect '/' if Link.update($title, params[:new_title], params[:new_url])
+    redirect '/' if Link.update(Link.get_title, params[:new_title], params[:new_url])
   end
 
 end

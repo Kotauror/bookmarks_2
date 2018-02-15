@@ -42,5 +42,12 @@ describe Link do
       expect(titles).to include 'Search Engine'
     end
   end
+  # 
+  # describe '.store_title' do
+  #   it 'stores a title' do
+  #     Link.store_title("Google")
+  #
+  #   end
+  # end
 
 end

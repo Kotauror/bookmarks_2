@@ -3,7 +3,8 @@ require_relative './database_connection'
 
 class Link
 
-  attr_reader :url, :id, :title
+  attr_reader :url, :id
+  attr_accessor :title
 
   def initialize(id, url, title)
     @id = id
@@ -40,5 +41,14 @@ class Link
     result = DatabaseConnection.query("SELECT * FROM links")
     result.map { |link| link['title'] }.include?(title)
   end
+
+  def self.store_title(title)
+    @@title = title
+  end
+
+  def self.get_title
+    @@title
+  end
+
 
 end
