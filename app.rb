@@ -37,8 +37,8 @@ class BookmarkManager < Sinatra::Base
     redirect '/bookmarks/delete'
   end
 
-  get '/enter_title' do
-    erb(:enter_title)
+  get '/bookmarks/title' do
+    erb(:"bookmarks/title")
   end
 
   post '/fill_details' do
@@ -47,7 +47,7 @@ class BookmarkManager < Sinatra::Base
       redirect '/update'
     else
       flash[:notice] = "This links is not it the database"
-      redirect ('/enter_title')
+      redirect ('/bookmarks/title')
     end
   end
 
@@ -57,7 +57,7 @@ class BookmarkManager < Sinatra::Base
       redirect ('/update')
     else
       Link.update(Link.get_title, params[:new_title], params[:new_url])
-      redirect '/bookmarks'
+      redirect '/'
     end
   end
 
