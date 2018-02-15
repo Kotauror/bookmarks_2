@@ -5,7 +5,7 @@ task :test_database_setup do
 
   connection = PG.connect(dbname: 'bookmark_manager_test')
 
-  connection.exec("TRUNCATE links;")
+  connection.exec("TRUNCATE comments, links;")
 
   connection.exec("INSERT INTO links VALUES(1, 'http://www.makersacademy.com', 'Makers Academy');")
   connection.exec("INSERT INTO links VALUES(2, 'http://www.google.com', 'Google');")
@@ -13,12 +13,21 @@ task :test_database_setup do
 end
 
 task :setup do
-  connection = PG.connect("CREATE DATABASE bookmark_manager;")
-  connection = PG.connect("CREATE DATABASE bookmark_manager_test;")
+  p "Creating databases..."
+  ["bookmark_manager", "bookmark_manager_test"].each do |database|
+    connection = PG.connect
+    connection.exec("CREATE DATABASE #{database}")
+    connection = PG.connect(dbname: "#{database}")
+    connection.exec("CREATE TABLE links(id SERIAL PRIMARY KEY, url VARCHAR(60), title VARCHAR(60));")
+    connection.exec("CREATE TABLE comments(id SERIAL PRIMARY KEY, text VARCHAR(240), link_id INTEGER REFERENCES links (id));")
+  end
+end
 
-  connection = PG.connect(dbname: 'bookmark_manager')
-  connection.exec("CREATE TABLE links(id SERIAL PRIMARY KEY, url VARCHAR(60), title VARCHAR(100));")
+task :teardown do
+  p "Tearing down databases..."
 
-  connection = PG.connect(dbname: 'bookmark_manager_test')
-  connection.exec("CREATE TABLE links(id SERIAL PRIMARY KEY, url VARCHAR(60), title VARCHAR(100));")
+  ['bookmark_manager', 'bookmark_manager_test'].each do |database|
+    connection = PG.connect
+    connection.exec("DROP DATABASE #{ database };")
+  end
 end
