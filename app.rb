@@ -19,7 +19,8 @@ class BookmarkManager < Sinatra::Base
 
   post '/confirm-addition' do
     redirect '/' if Link.add(params[:url], params[:title])
-    redirect '/add' if flash[:notice] = "You must submit a valid URL"
+    flash[:notice] = "You must submit a valid URL"
+    redirect '/add'
   end
 
   get '/delete' do
@@ -28,7 +29,8 @@ class BookmarkManager < Sinatra::Base
 
   post '/confirm-deletion' do
     redirect '/' if Link.delete(params[:title])
-    redirect '/delete' if flash[:notice] = "This title is not a saved bookmark"
+    flash[:notice] = "This title is not a saved bookmark"
+    redirect '/delete'
   end
 
   get '/enter_title' do
