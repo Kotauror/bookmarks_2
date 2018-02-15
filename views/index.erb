@@ -10,11 +10,14 @@
   <form action="/delete" method="GET">
     <input type="submit" value="delete bookmark"/>
   </form>
+  <form action="/enter_title" method="GET">
+    <input type="submit" value="update bookmark"/>
+  </form>
 
   <ul>
-  <p><% @links.each do |link| %>
-    <li><a href="<%= link.url %>"><%= link.title %></a><br>
-  <% end %></p>
+    <p><% @links.each do |link| %>
+      <li><a href="<%= link.url %>"><%= link.title %></a><br>
+    <% end %></p>
   </ul>
 
 </body>

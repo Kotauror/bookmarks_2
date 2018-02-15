@@ -31,4 +31,17 @@ class BookmarkManager < Sinatra::Base
     redirect '/delete' if flash[:notice] = "This title is not a saved bookmark"
   end
 
+  get '/enter_title' do
+    erb(:enter_title)
+  end
+
+  post '/fill_details' do
+    $title = params[:title]
+    erb(:update) if Link.is_title?($title)
+  end
+
+  post '/update-confirmation' do
+    redirect '/' if Link.update($title, params[:new_title], params[:new_url])
+  end
+
 end

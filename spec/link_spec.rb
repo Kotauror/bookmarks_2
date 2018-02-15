@@ -32,7 +32,15 @@ describe Link do
       titles = links.map(&:title)
       expect(titles).not_to include 'Google'
     end
+  end
 
+  describe '.update' do
+    it 'updates a row in the database' do
+      Link.update('Google', 'Search Engine', 'http://www.google.com')
+      links = Link.all
+      titles = links.map(&:title)
+      expect(titles).to include 'Search Engine'
+    end
   end
 
 end
