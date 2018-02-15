@@ -43,12 +43,12 @@ class BookmarkManager < Sinatra::Base
 
   post '/bookmarks/edit' do
     redirect '/' if Link.update(params[:title], params[:new_title], params[:new_url])
-    if Link.is_url?(params[:new_url]) == false
-      flash[:notice] = "You have to submit a valid URL (start with www or http://)."
-      redirect ('/bookmarks/edit')
-    end
     if Link.is_title?(params[:title]) == false
       flash[:notice] = "This title doesn't exist in the database."
+      redirect ('/bookmarks/edit')
+    end
+    if Link.is_url?(params[:new_url]) == false
+      flash[:notice] = "You have to submit a valid URL (start with www or http://)."
       redirect ('/bookmarks/edit')
     end
   end
