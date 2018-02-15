@@ -2,7 +2,7 @@
   <%= flash[:notice] %>
 <% end %>
 <p>Enter the title of the bookmark you want to update: </p><br>
-  <form action="/fill_details" method="post">
+  <form action="/bookmarks/title" method="post">
     <input type="text" name="title" placeholder="enter current title">
     <input type="submit" value="Submit">
   </form>

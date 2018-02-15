@@ -41,7 +41,7 @@ class BookmarkManager < Sinatra::Base
     erb(:"bookmarks/title")
   end
 
-  post '/fill_details' do
+  post '/bookmarks/title' do
     Link.store_title(params[:title])
     if Link.is_title?(params[:title])
       redirect '/update'
