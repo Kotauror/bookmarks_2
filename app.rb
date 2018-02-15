@@ -21,7 +21,7 @@ class BookmarkManager < Sinatra::Base
     erb(:"bookmarks/new")
   end
 
-  post '/confirm-addition' do
+  post '/bookmarks/new' do
     redirect '/bookmarks' if Link.add(params[:url], params[:title])
     flash[:notice] = "You must submit a valid URL"
     redirect '/bookmarks/new'
