@@ -55,7 +55,7 @@ class BookmarkManager < Sinatra::Base
     erb(:'/bookmarks/title/edit')
   end
 
-  post '/update-confirmation' do
+  post '/bookmarks/title/edit' do
     if !Link.is_url?(params[:new_url])
       flash[:notice] = "This is not a valid url"
       redirect ('/bookmarks/title/edit')

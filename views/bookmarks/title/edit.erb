@@ -2,7 +2,7 @@
   <%= flash[:notice] %>
 <% end %>
 <p>Please fill in both fields. If you don't wish to update either, enter the current URL or title</p>
-<form action="/update-confirmation" method="post">
+<form action="/bookmarks/title/edit" method="post">
   <input type="text" name="new_title" placeholder="enter title">
   <input type="text" name="new_url" placeholder="enter url">
   <input type="submit" value="Submit">
