@@ -40,7 +40,7 @@ class BookmarkManager < Sinatra::Base
   post '/fill_details' do
     Link.store_title(params[:title])
     if Link.is_title?(params[:title])
-      erb(:update)
+      redirect '/update'
     else
       flash[:notice] = "This links is not it the database"
       redirect ('/enter_title')
