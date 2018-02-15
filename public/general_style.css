@@ -1,0 +1,52 @@
+.index_buttons {
+  display: flex;
+  padding-left: 1em;
+  background-color: #9c9ab0;
+  height: 3.3em;
+}
+
+.main_button {
+  margin-left: 0.5em;
+  margin: 0.7em;
+}
+
+.button_text {
+  font-family: Barlow Condensed;
+  font-size: 1.2em;
+  border-radius: 10px;
+  width: 8em;
+}
+
+.button_text:hover  {
+  background-color: #c5ab87;
+}
+
+.links {
+  margin-top: 3em;
+}
+
+p {
+  font-size: 1.2em;
+  font-family: Barlow Condensed;
+  letter-spacing: 0.05em;
+  margin-left: 1.5em;
+}
+
+h1 {
+  text-align: center;
+  font-family: Barlow Condensed;
+  letter-spacing: 0.05em;
+  font-size: 2em;
+}
+
+h2 {
+  font-family: Barlow Condensed;
+  letter-spacing: 0.05em;
+  font-size: 1.3em;
+}
+
+.form {
+  margin-left: auto;
+  margin-right: auto;
+  display: table;
+}

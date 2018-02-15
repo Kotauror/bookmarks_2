@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" type="text/css" href="/flash_style.css">
+    <link rel="stylesheet" type="text/css" href="/flash_style.css">
+    <link rel="stylesheet" type="text/css" href="/general_style.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
   </head>
   <body>
-<form action="/bookmarks/delete" method="post">
-  <input type="text" name="title" placeholder="enter title">
-  <input type="submit" value="Submit">
-</form>
-<% if flash[:notice] == "This title is not a saved bookmark" %>
-  <div class="flash"><%= flash[:notice] %></div>
-<% end %>
-
-</body>
+    <div class="flash_field">
+      <% if flash[:notice] == "This title is not a saved bookmark" %>
+        <div class="flash"><%= flash[:notice] %></div>
+      <% end %>
+    </div>
+    <h1>
+      Enter title of the bookmark you want to delete.
+    </h1>
+    <form action="/bookmarks/delete" method="post" class="form">
+      <input type="text" name="title" placeholder="enter title">
+      <input type="submit" value="Submit">
+    </form>
+  </body>
 </html>

@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title></title>
-</head>
-<body>
-  <form action="/bookmarks/new" method="GET">
-    <input type="submit" value="Add bookmark"/>
-  </form>
-  <form action="/bookmarks/delete" method="GET">
-    <input type="submit" value="Delete bookmark"/>
-  </form>
-  <form action="/bookmarks/title" method="GET">
-    <input type="submit" value="Update bookmark"/>
-  </form>
-
-  <ul>
-    <p><% @links.each do |link| %>
-      <li><a href="<%= link.url %>"><%= link.title %></a><br>
-    <% end %></p>
-  </ul>
-
-</body>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/general_style.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
+    <title></title>
+  </head>
+  <body>
+    <div class="index_buttons">
+      <form action="/bookmarks/new" method="GET" class="main_button">
+        <input type="submit" value="Add bookmark" class="button_text">
+      </form>
+      <form action="/bookmarks/delete" method="GET" class="main_button">
+        <input type="submit" value="Delete bookmark" class="button_text">
+      </form>
+      <form action="/bookmarks/title" method="GET" class="main_button">
+        <input type="submit" value="Update bookmark" class="button_text">
+      </form>
+    </div>
+    <div class="links">
+    <ul>
+      <p>
+        <% @links.each do |link| %>
+          <li>
+            <h2> <a href="<%= link.url %>"><%= link.title %></a><br> </h2>
+          <% end %>
+        </p>
+    </ul>
+  </div>
+  </body>
 </html>

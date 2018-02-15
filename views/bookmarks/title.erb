@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" type="text/css" href="/flash_style.css">
+    <link rel="stylesheet" type="text/css" href="/flash_style.css">
+    <link rel="stylesheet" type="text/css" href="/general_style.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
   </head>
   <body>
-
-
-<% if flash[:notice] == "This links is not it the database" %>
-  <div class="flash"><%= flash[:notice] %></div>
-<% end %>
-<p>Enter the title of the bookmark you want to update: </p><br>
-  <form action="/bookmarks/title" method="post">
-    <input type="text" name="title" placeholder="enter current title">
-    <input type="submit" value="Submit">
-  </form>
-
-</body>
+    <div class="flash_field">
+      <% if flash[:notice] == "This links is not it the database" %>
+        <div class="flash"><%= flash[:notice] %></div>
+      <% end %>
+    </div>
+    <h1>Enter a title of the bookmark you want to update.
+    </h1><br>
+    <form action="/bookmarks/title" method="post" class="form">
+      <input type="text" name="title" placeholder="enter current title">
+      <input type="submit" value="Submit">
+    </form>
+  </body>
 </html>

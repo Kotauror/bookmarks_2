@@ -1,18 +1,24 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" type="text/css" href="/flash_style.css">
-</head>
-<body>
-  <form action="/bookmarks/new" method="POST">
-    <input type="text" name="url" placeholder="enter URL"/>
-    <input type="text" name="title" placeholder="enter title">
-    <input type="submit" value="Submit"/>
-  </form>
-  <br><br>
-  <% if flash[:notice] == "You must submit a valid URL" %>
-    <div class="flash"><%= flash[:notice] %></div>
-  <% end %>
-</body>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/flash_style.css">
+    <link rel="stylesheet" type="text/css" href="/general_style.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
+  </head>
+  <body>
+    <div class="flash_field">
+      <% if flash[:notice] == "You must submit a valid URL" %>
+        <div class="flash"><%= flash[:notice] %></div>
+      <% end %>
+    </div>
+    <h1>
+      Add a title and url of a bookmark you want to add.
+    </h1>
+    <form action="/bookmarks/new" method="POST" class="form">
+      <input type="text" name="url" placeholder="enter URL">
+      <input type="text" name="title" placeholder="enter title">
+      <input type="submit" value="Submit">
+    </form>
+    <br><br>
+  </body>
 </html>

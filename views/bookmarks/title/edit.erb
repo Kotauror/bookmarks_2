@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" type="text/css" href="/flash_style.css">
+    <link rel="stylesheet" type="text/css" href="/flash_style.css">
+    <link rel="stylesheet" type="text/css" href="/general_style.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
   </head>
   <body>
-
-<% if flash[:notice] == 'This is not a valid url' %>
-  <div class="flash"><%= flash[:notice] %></div>
-<% end %>
-<p>Please fill in both fields. If you don't wish to update either, enter the current URL or title</p>
-<form action="/bookmarks/title/edit" method="post">
-  <input type="text" name="new_title" placeholder="enter title">
-  <input type="text" name="new_url" placeholder="enter url">
-  <input type="submit" value="Submit">
-</form>
-</body>
+    <div class="flash_field">
+      <% if flash[:notice] == 'This is not a valid url' %>
+        <div class="flash"><%= flash[:notice] %></div>
+      <% end %>
+    </div>
+    <h1>Please fill in both fields. If you don't wish to update either, enter the current URL or title.</h1>
+    <form action="/bookmarks/title/edit" method="post" class="form">
+      <input type="text" name="new_title" placeholder="enter title">
+      <input type="text" name="new_url" placeholder="enter url">
+      <input type="submit" value="Submit">
+    </form>
+  </body>
 </html>
