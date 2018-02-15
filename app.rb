@@ -8,19 +8,23 @@ class BookmarkManager < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
-  get '/bookmarks' do
-    @links = Link.all
-    erb(:index)
+  get '/' do
+    redirect ('/bookmarks')
   end
 
-  get '/add' do
-    erb(:add)
+  get '/bookmarks' do
+    @links = Link.all
+    erb(:"bookmarks/index")
+  end
+
+  get '/bookmarks/new' do
+    erb(:"bookmarks/new")
   end
 
   post '/confirm-addition' do
     redirect '/bookmarks' if Link.add(params[:url], params[:title])
     flash[:notice] = "You must submit a valid URL"
-    redirect '/add'
+    redirect '/bookmarks/new'
   end
 
   get '/delete' do
