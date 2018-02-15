@@ -23,8 +23,7 @@
     <ul>
       <p>
         <% @links.each do |link| %>
-          <li>
-            <h2> <a href="<%= link.url %>"><%= link.title %></a><br> </h2>
+            <h2> <a href="<%= link.url %>"><div class="single_link"><%= link.title %></div></a></h2>
           <% end %>
         </p>
     </ul>
