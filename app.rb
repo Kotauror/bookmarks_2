@@ -37,25 +37,20 @@ class BookmarkManager < Sinatra::Base
     redirect '/bookmarks/delete'
   end
 
-  get '/bookmarks/title' do
-    erb(:"bookmarks/title")
+  get '/bookmarks/edit' do
+    erb(:'/bookmarks/edit')
   end
 
-  post '/bookmarks/title' do
-    Link.store_title(params[:title])
-    redirect '/bookmarks/title/edit' if Link.is_title?(params[:title])
-    flash[:notice] = "This title doesn't exist in the database."
-    redirect ('/bookmarks/title')
-  end
-
-  get '/bookmarks/title/edit' do
-    erb(:'/bookmarks/title/edit')
-  end
-
-  post '/bookmarks/title/edit' do
-    redirect '/' if Link.update(Link.get_title, params[:new_title], params[:new_url])
-    flash[:notice] = "You have to submit a valid URL (start with www or http://)."
-    redirect ('/bookmarks/title/edit')
+  post '/bookmarks/edit' do
+    redirect '/' if Link.update(params[:title], params[:new_title], params[:new_url])
+    if Link.is_url?(params[:new_url]) == false
+      flash[:notice] = "You have to submit a valid URL (start with www or http://)."
+      redirect ('/bookmarks/edit')
+    end
+    if Link.is_title?(params[:title]) == false
+      flash[:notice] = "This title doesn't exist in the database."
+      redirect ('/bookmarks/edit')
+    end
   end
 
 end

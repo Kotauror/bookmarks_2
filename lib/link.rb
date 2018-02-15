@@ -28,7 +28,7 @@ class Link
   end
 
   def self.update(title, new_title, new_url)
-    return false unless is_url?(new_url)
+    return false unless is_url?(new_url) && is_title?(title)
     DatabaseConnection.query("UPDATE links SET title='#{new_title}', url='#{new_url}' WHERE title='#{title}'")
   end
 

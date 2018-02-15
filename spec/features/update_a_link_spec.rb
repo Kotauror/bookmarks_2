@@ -3,7 +3,6 @@ feature 'update links' do
     visit('/bookmarks')
     click_button('Update bookmark')
     fill_in('title', with: 'Google')
-    click_button('Submit')
     fill_in('new_title', with: 'Search Engine')
     fill_in('new_url', with: 'http://www.google.com')
     click_button('Submit')
@@ -14,6 +13,8 @@ feature 'update links' do
     visit('/bookmarks')
     click_button('Update bookmark')
     fill_in('title', with: 'Cats')
+    fill_in('new_title', with: 'Dogs')
+    fill_in('new_url', with: 'www.test.pl')
     click_button('Submit')
     expect(page).to have_content "This title doesn't exist in the database."
   end
@@ -22,7 +23,6 @@ feature 'update links' do
     visit('/bookmarks')
     click_button('Update bookmark')
     fill_in('title', with: 'Google')
-    click_button('Submit')
     fill_in('new_title', with: 'Search Engine')
     fill_in('new_url', with: 'google.com')
     click_button('Submit')
