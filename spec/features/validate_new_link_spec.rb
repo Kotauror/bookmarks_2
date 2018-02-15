@@ -4,6 +4,6 @@ feature 'validate new links' do
     click_button 'Add bookmark'
     fill_in 'url', with: 'TEST'
     click_button 'Submit'
-    expect(page).to have_content "You must submit a valid URL"
+    expect(page).to have_content "You have to submit a valid URL (start with www or http://)."
   end
 end

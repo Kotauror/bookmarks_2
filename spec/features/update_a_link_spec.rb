@@ -15,7 +15,7 @@ feature 'update links' do
     click_button('Update bookmark')
     fill_in('title', with: 'Cats')
     click_button('Submit')
-    expect(page).to have_content 'This links is not it the database'
+    expect(page).to have_content "This title doesn't exist in the database."
   end
 
   scenario 'user provides an invalid url' do
@@ -26,6 +26,6 @@ feature 'update links' do
     fill_in('new_title', with: 'Search Engine')
     fill_in('new_url', with: 'google.com')
     click_button('Submit')
-    expect(page).to have_content 'This is not a valid url'
+    expect(page).to have_content 'You have to submit a valid URL (start with www or http://).'
   end
 end

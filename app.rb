@@ -23,7 +23,7 @@ class BookmarkManager < Sinatra::Base
 
   post '/bookmarks/new' do
     redirect '/bookmarks' if Link.add(params[:url], params[:title])
-    flash[:notice] = "You must submit a valid URL"
+    flash[:notice] = "You have to submit a valid URL (start with www or http://)."
     redirect '/bookmarks/new'
   end
 
@@ -33,7 +33,7 @@ class BookmarkManager < Sinatra::Base
 
   post '/bookmarks/delete' do
     redirect '/' if Link.delete(params[:title])
-    flash[:notice] = "This title is not a saved bookmark"
+    flash[:notice] = "This title doesn't exist in the database."
     redirect '/bookmarks/delete'
   end
 
@@ -46,7 +46,7 @@ class BookmarkManager < Sinatra::Base
     if Link.is_title?(params[:title])
       redirect '/bookmarks/title/edit'
     else
-      flash[:notice] = "This links is not it the database"
+      flash[:notice] = "This title doesn't exist in the database."
       redirect ('/bookmarks/title')
     end
   end
@@ -57,7 +57,7 @@ class BookmarkManager < Sinatra::Base
 
   post '/bookmarks/title/edit' do
     if !Link.is_url?(params[:new_url])
-      flash[:notice] = "This is not a valid url"
+      flash[:notice] = "You have to submit a valid URL (start with www or http://)."
       redirect ('/bookmarks/title/edit')
     else
       Link.update(Link.get_title, params[:new_title], params[:new_url])

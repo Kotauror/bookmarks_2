@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="flash_field">
-      <% if flash[:notice] == "You must submit a valid URL" %>
+      <% if flash[:notice] == "You have to submit a valid URL (start with www or http://)." %>
         <div class="flash"><%= flash[:notice] %></div>
       <% end %>
     </div>

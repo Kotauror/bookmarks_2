@@ -12,6 +12,6 @@ feature 'delete links' do
     click_button('Delete bookmark')
     fill_in('title', with: 'Cats')
     click_button('Submit')
-    expect(page).to have_content "This title is not a saved bookmark"
+    expect(page).to have_content "This title doesn't exist in the database."
   end
 end
