@@ -27,14 +27,14 @@ class BookmarkManager < Sinatra::Base
     redirect '/bookmarks/new'
   end
 
-  get '/delete' do
-    erb(:delete)
+  get '/bookmarks/delete' do
+    erb(:"bookmarks/delete")
   end
 
-  post '/confirm-deletion' do
+  post '/bookmarks/delete' do
     redirect '/' if Link.delete(params[:title])
     flash[:notice] = "This title is not a saved bookmark"
-    redirect '/delete'
+    redirect '/bookmarks/delete'
   end
 
   get '/enter_title' do
