@@ -4,8 +4,8 @@
   <title></title>
 </head>
 <body><ul>
-  <p><% @urls.each do |url| %>
-    <li><%= url %><br>
+  <p><% @links.each do |link| %>
+    <li><a href="<%= link.url %>"><%= link.title %></a><br>
   <% end %></p></ul>
 </body>
 </html>
