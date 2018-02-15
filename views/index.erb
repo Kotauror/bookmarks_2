@@ -4,12 +4,14 @@
   <title></title>
 </head>
 <body>
-  <form action="/display" method="GET">
-    <input type="submit" value="display bookmarks"/>
-  </form>
   <form action="/add" method="GET">
     <input type="submit" value="add bookmark"/>
   </form>
+
+  <ul>
+  <p><% @links.each do |link| %>
+    <li><a href="<%= link.url %>"><%= link.title %></a><br>
+  <% end %></p></ul>
 
 </body>
 </html>
