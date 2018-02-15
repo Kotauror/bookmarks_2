@@ -4,7 +4,7 @@ html {
 
 .webpage_title {
   font-family: Barlow Condensed;
-  font-size: 1.2em !important;
+  font-size: 1.4em !important;
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -12,19 +12,25 @@ html {
 .index_buttons {
   display: flex;
   padding-left: 1em;
-  background-color: #96b5dd;
+  background-color: #d34c4c;
   height: 3.3em;
 }
 
 .main_button {
   margin-left: 0.5em;
   margin: 0.8em;
+  border: none;
 }
 
 .button_text {
   font-family: Barlow Condensed;
-  font-size: 1.1em;
+  font-size: 1.3em;
   width: 8em;
+}
+
+.button_text:hover {
+  background-color: #ea8989;
+  color: #4a4a5e;
 }
 
 .links {
@@ -33,7 +39,7 @@ html {
 
 p {
   font-size: 1.2em;
-  font-family: Barlow Condensed;
+  font-family: Gentium Book Basic;
   letter-spacing: 0.05em;
   margin-left: 1.5em;
 }
@@ -46,9 +52,10 @@ h1 {
 }
 
 h2 {
-  font-family: Barlow Condensed;
+  font-family: Gentium Book Basic;
   letter-spacing: 0.05em;
   font-size: 1.3em;
+  color: black;
 }
 
 .form {
@@ -72,4 +79,28 @@ h2 {
   height: 2.65em;
   width: 8em;
   margin-left: 1em;
+}
+
+/* unvisited link */
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: #c75760;
+    text-decoration: none;
+}
+
+/* selected link */
+a:active {
+    color: black;
+    text-decoration: none;
 }
