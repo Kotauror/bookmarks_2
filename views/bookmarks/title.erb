@@ -7,9 +7,7 @@
   </head>
   <body>
     <div class="flash_field">
-      <% if flash[:notice] == "This title doesn't exist in the database." %>
-        <div class="flash"><%= flash[:notice] %></div>
-      <% end %>
+      <div class="flash"><%= flash[:notice] %></div>
     </div>
     <h1>Enter a title of the bookmark you want to update.
     </h1><br>

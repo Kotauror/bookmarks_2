@@ -7,9 +7,7 @@
   </head>
   <body>
     <div class="flash_field">
-      <% if flash[:notice] == "You have to submit a valid URL (start with www or http://)." %>
-        <div class="flash"><%= flash[:notice] %></div>
-      <% end %>
+      <div class="flash"><%= flash[:notice] %></div>
     </div>
     <h1>
       Add a title and url of a bookmark you want to add.
