@@ -44,25 +44,25 @@ class BookmarkManager < Sinatra::Base
   post '/bookmarks/title' do
     Link.store_title(params[:title])
     if Link.is_title?(params[:title])
-      redirect '/update'
+      redirect '/bookmarks/title/edit'
     else
       flash[:notice] = "This links is not it the database"
       redirect ('/bookmarks/title')
     end
   end
 
+  get '/bookmarks/title/edit' do
+    erb(:'/bookmarks/title/edit')
+  end
+
   post '/update-confirmation' do
     if !Link.is_url?(params[:new_url])
       flash[:notice] = "This is not a valid url"
-      redirect ('/update')
+      redirect ('/bookmarks/title/edit')
     else
       Link.update(Link.get_title, params[:new_title], params[:new_url])
       redirect '/'
     end
-  end
-
-  get '/update' do
-    erb(:update)
   end
 
 end
