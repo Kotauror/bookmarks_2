@@ -1,24 +1,30 @@
+html {
+  background-color: #ededed;
+}
+
+.webpage_title {
+  font-family: Barlow Condensed;
+  font-size: 1.2em !important;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .index_buttons {
   display: flex;
   padding-left: 1em;
-  background-color: #9c9ab0;
+  background-color: #96b5dd;
   height: 3.3em;
 }
 
 .main_button {
   margin-left: 0.5em;
-  margin: 0.7em;
+  margin: 0.8em;
 }
 
 .button_text {
   font-family: Barlow Condensed;
-  font-size: 1.2em;
-  border-radius: 10px;
+  font-size: 1.1em;
   width: 8em;
-}
-
-.button_text:hover  {
-  background-color: #c5ab87;
 }
 
 .links {
@@ -49,4 +55,21 @@ h2 {
   margin-left: auto;
   margin-right: auto;
   display: table;
+}
+
+.form_url_field {
+  height: 2em;
+  width: 25em;
+}
+
+.form_title_field {
+  height: 2em;
+  width: 20em;
+  margin-right: 0.5em;
+}
+
+.form_button {
+  height: 2.65em;
+  width: 8em;
+  margin-left: 1em;
 }
