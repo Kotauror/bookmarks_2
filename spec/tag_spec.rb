@@ -1,9 +1,9 @@
 require 'Tag'
 
 describe Tag do
-  describe '.all' do
+  describe '.all_tags' do
     it 'returns all tags' do
-      tags = Tag.all
+      tags = Tag.all_tags
       contents = tags.map(&:content)
       expect(contents).to include("bootcamp")
     end
@@ -12,7 +12,7 @@ describe Tag do
   describe '.add_to_tags' do
     it 'adds a link to the database' do
       Tag.add_to_tags("fun")
-      tags = Tag.all
+      tags = Tag.all_tags
       contents = tags.map(&:content)
       expect(contents).to include ("fun")
     end

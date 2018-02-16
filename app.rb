@@ -71,6 +71,8 @@ class BookmarkManager < Sinatra::Base
 
   post '/tags/new' do
     Tag.add_to_tags(params[:tag])
+    tag_id = Tag.get_tag_id(params[:tag])
+    Tag.add_to_link_tags(params[:link_id], tag_id)
     redirect('/')
   end
 
