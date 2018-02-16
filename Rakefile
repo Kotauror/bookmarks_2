@@ -5,7 +5,7 @@ task :test_database_setup do
 
   connection = PG.connect(dbname: 'bookmark_manager_test')
 
-  connection.exec("TRUNCATE comments, links;")
+  connection.exec("TRUNCATE comments, links, tags, link_tags;")
 
   connection.exec("INSERT INTO links VALUES(1, 'http://www.makersacademy.com', 'Makers Academy');")
   connection.exec("INSERT INTO links VALUES(2, 'http://www.google.com', 'Google');")
