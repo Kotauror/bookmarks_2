@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/link.rb'
 require './lib/comment.rb'
+require './lib/tag.rb'
 require './database_connection_setup'
 
 class BookmarkManager < Sinatra::Base
@@ -61,6 +62,15 @@ class BookmarkManager < Sinatra::Base
 
   post '/comments/new' do
     Comment.add(params[:comment], params[:id])
+    redirect('/')
+  end
+
+  get '/tags/new' do
+    erb(:"tags/new")
+  end
+
+  post '/tags/new' do
+    Tag.add_to_tags(params[:tag])
     redirect('/')
   end
 

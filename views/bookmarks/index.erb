@@ -21,9 +21,12 @@
       <form action="/comments/new" method="GET" class="main_button">
         <input type="submit" value="Comment Bookmark" class="button_text">
       </form>
+      <form action="/tags/new" method="GET" class="main_button">
+        <input type="submit" value="Tag Bookmark" class="button_text">
+      </form>
     </div>
-    <div class="links">
     <ul>
+    <div class="links">
       <p>
         <% @links.each do |link| %>
             <h2> <a href="<%= link.url %>"><div class="single_link"><%= link.id %>. <%= link.title %></a></h2></div>
