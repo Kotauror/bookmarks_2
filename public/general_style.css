@@ -112,3 +112,8 @@ a:active {
     color: black;
     text-decoration: none;
 }
+
+.button_comment_text {
+  width: 30em !important;
+  height: 8em;
+}

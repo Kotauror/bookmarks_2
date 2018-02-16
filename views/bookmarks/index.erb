@@ -18,12 +18,16 @@
       <form action="/bookmarks/edit" method="GET" class="main_button">
         <input type="submit" value="Update bookmark" class="button_text">
       </form>
+      <form action="/comments/new" method="GET" class="main_button">
+        <input type="submit" value="Comment link" class="button_text">
+      </form>
     </div>
     <div class="links">
     <ul>
       <p>
         <% @links.each do |link| %>
-            <h2> <a href="<%= link.url %>"><div class="single_link"><%= link.title %></div></a></h2>
+            <h2> <a href="<%= link.url %>"><div class="single_link"><%= link.title %></a></h2>
+          </div>
           <% end %>
         </p>
     </ul>

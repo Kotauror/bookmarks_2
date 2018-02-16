@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/link.rb'
+require './lib/comment.rb'
 require './database_connection_setup'
 
 class BookmarkManager < Sinatra::Base
@@ -13,6 +14,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks' do
+    @comments = Comment.all
     @links = Link.all
     erb(:"bookmarks/index")
   end
@@ -51,6 +53,15 @@ class BookmarkManager < Sinatra::Base
       flash[:notice] = "You have to submit a valid URL (start with www or http://)."
       redirect ('/bookmarks/edit')
     end
+  end
+
+  get '/comments/new' do
+    erb(:"comments/new")
+  end
+
+  post '/comments/new' do
+    Comment.add(params[:comment])
+    redirect('/')
   end
 
 end
