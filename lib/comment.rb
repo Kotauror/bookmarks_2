@@ -17,6 +17,14 @@ class Comment
   end
 
   def self.add(text, link_id)
+    return false unless is_id?(link_id)
     DatabaseConnection.query("INSERT INTO comments (text, link_id) VALUES('#{text}', '#{link_id}')")
+  end
+
+  private
+
+  def self.is_id?(id)
+    result = DatabaseConnection.query("SELECT * FROM links")
+    result.map { |link| link['id'] }.include?(id)
   end
 end

@@ -63,8 +63,9 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/comments/new' do
-    Comment.add(params[:comment], params[:id])
-    redirect('/')
+    redirect '/' if Comment.add(params[:comment], params[:id])
+    flash[:notice] = "Bookmark with this ID doesn't exist in the database and so cannot be commented."
+    redirect '/comments/new'
   end
 
   get '/tags/new' do
@@ -72,10 +73,15 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/tags/new' do
-    Tag.add_to_tags(params[:tag])
-    tag_id = Tag.get_tag_id(params[:tag])
-    Tag.add_to_link_tags(params[:link_id], tag_id)
-    redirect('/')
+    if Tag.is_id?(params[:link_id]) == false
+      flash[:notice] = "Bookmark with this ID doesn't exist in the database and so cannot be tagged."
+      redirect '/tags/new'
+    else
+      Tag.add_to_tags(params[:tag])
+      tag_id = Tag.get_tag_id(params[:tag])
+      Tag.add_to_link_tags(params[:link_id], tag_id)
+      redirect('/')
+    end
   end
 
 end

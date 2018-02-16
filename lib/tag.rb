@@ -34,4 +34,9 @@ class Tag
     result.map { |hash| return hash['id'] if hash['content'] == tag }
   end
 
+  def self.is_id?(id)
+    result = DatabaseConnection.query("SELECT * FROM links")
+    result.map { |link| link['id'] }.include?(id)
+  end
+
 end
