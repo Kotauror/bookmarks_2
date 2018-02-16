@@ -78,8 +78,4 @@ class BookmarkManager < Sinatra::Base
     redirect('/')
   end
 
-  get 'tags/show' do
-    erb(:"tags/show")
-  end
-
 end
