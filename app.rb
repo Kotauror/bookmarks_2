@@ -15,6 +15,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks' do
+    @tags = Tag.all_tags
+    @pairs = Tag.all_pairs
     @comments = Comment.all
     @links = Link.all
     erb(:"bookmarks/index")

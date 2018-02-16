@@ -10,6 +10,10 @@ class Tag
     @content = content
   end
 
+  def self.all_pairs
+    DatabaseConnection.query("SELECT * FROM link_tags")
+  end
+
   def self.all_tags
     result = DatabaseConnection.query("SELECT * FROM tags")
     result.map { |hash| Tag.new(hash['id'], hash['content']) }
