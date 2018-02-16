@@ -37,7 +37,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/bookmarks/delete' do
-    redirect '/' if Link.delete(params[:title])
+    redirect '/' if Link.delete(params[:id], params[:title])
     flash[:notice] = "This title doesn't exist in the database."
     redirect '/bookmarks/delete'
   end

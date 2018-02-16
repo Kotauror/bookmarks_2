@@ -27,7 +27,7 @@ describe Link do
 
   describe '.delete' do
     it 'deletes row from database' do
-      Link.delete('Google')
+      Link.delete(2, 'Google')
       links = Link.all
       titles = links.map(&:title)
       expect(titles).not_to include 'Google'

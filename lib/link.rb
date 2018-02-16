@@ -22,9 +22,12 @@ class Link
     DatabaseConnection.query("INSERT INTO links (url, title) VALUES('#{url}', '#{title}')")
   end
 
-  def self.delete(title)
+  def self.delete(id, title)
     return false unless is_title?(title)
+    DatabaseConnection.query("DELETE FROM comments WHERE link_id='#{id}'")
+    DatabaseConnection.query("DELETE FROM link_tags WHERE link_id='#{id}'")
     DatabaseConnection.query("DELETE FROM links WHERE title='#{title}'")
+
   end
 
   def self.update(title, new_title, new_url)

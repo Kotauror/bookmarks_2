@@ -4,6 +4,7 @@ feature 'delete links' do
     visit('/bookmarks')
     click_button('Delete bookmark')
     fill_in('title', with: 'Google')
+    fill_in('id', with: '2')
     click_button('Submit')
     expect(page).not_to have_content('Google')
   end
