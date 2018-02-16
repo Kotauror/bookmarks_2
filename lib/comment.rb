@@ -3,7 +3,7 @@ require_relative './database_connection'
 
 class Comment
 
-  attr_reader :url, :id, :text
+  attr_reader :id, :text, :link_id
 
   def initialize(id, text, link_id)
     @id = id
@@ -16,7 +16,7 @@ class Comment
     result.map { |hash| Comment.new(hash['id'], hash['text'], hash['link_id']) }
   end
 
-  def self.add(text)
-    DatabaseConnection.query("INSERT INTO comments (text) VALUES('#{text}')")
+  def self.add(text, link_id)
+    DatabaseConnection.query("INSERT INTO comments (text, link_id) VALUES('#{text}', '#{link_id}')")
   end
 end

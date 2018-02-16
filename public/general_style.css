@@ -39,7 +39,6 @@ html {
 
 .single_link {
   background-color: #e5cece;
-  width: 80%;
   margin-left: auto;
   margin-right: auto;
   padding: 0.3em;
@@ -64,6 +63,20 @@ h2 {
   letter-spacing: 0.05em;
   font-size: 1.3em;
   color: black;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-family: Gentium Book Basic;
+  letter-spacing: 0.05em;
+  margin-left: 3em !important;
+}
+
+h4 {
+  font-size: 1em;
+  font-family: Gentium Book Basic;
+  letter-spacing: 0.05em;
+  margin-left: 5em !important;
 }
 
 .form {

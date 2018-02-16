@@ -19,16 +19,21 @@
         <input type="submit" value="Update bookmark" class="button_text">
       </form>
       <form action="/comments/new" method="GET" class="main_button">
-        <input type="submit" value="Comment link" class="button_text">
+        <input type="submit" value="Comment Bookmark" class="button_text">
       </form>
     </div>
     <div class="links">
     <ul>
       <p>
         <% @links.each do |link| %>
-            <h2> <a href="<%= link.url %>"><div class="single_link"><%= link.title %></a></h2>
-          </div>
-          <% end %>
+            <h2> <a href="<%= link.url %>"><div class="single_link"><%= link.id %>. <%= link.title %></a></h2></div>
+            <h3> Comments: </h3>
+            <% @comments.each do |comment| %>
+              <% if comment.link_id == link.id %>
+                <h4> <li> <%= comment.text %> </h4>
+              <% end %>
+            <% end %>
+        <% end %>
         </p>
     </ul>
   </div>

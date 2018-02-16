@@ -11,7 +11,7 @@ describe Comment do
 
   describe '.add' do
     it 'adds a link to the database' do
-      Comment.add("Mean comment")
+      Comment.add("Mean comment", "1")
       comments = Comment.all
       texts = comments.map(&:text)
       expect(texts).to include ("Mean comment")
