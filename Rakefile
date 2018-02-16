@@ -21,6 +21,8 @@ task :setup do
     connection = PG.connect(dbname: "#{database}")
     connection.exec("CREATE TABLE links(id SERIAL PRIMARY KEY, url VARCHAR(60), title VARCHAR(60));")
     connection.exec("CREATE TABLE comments(id SERIAL PRIMARY KEY, text VARCHAR(240), link_id INTEGER REFERENCES links (id));")
+    connection.exec("CREATE TABLE tags(id SERIAL PRIMARY KEY, content VARCHAR(60);")
+    connection.exec("CREATE TABLE link_tags(id SERIAL PRIMARY KEY, link_id INTEGER REFERENCES links (id), tag_id INTEGER REFERENCES tang (id);")
   end
 end
 
