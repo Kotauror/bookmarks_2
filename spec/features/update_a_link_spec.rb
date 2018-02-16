@@ -26,6 +26,6 @@ feature 'update links' do
     fill_in('new_title', with: 'Search Engine')
     fill_in('new_url', with: 'google.com')
     click_button('Submit')
-    expect(page).to have_content 'You have to submit a valid URL (start with www or http://).'
+    expect(page).to have_content 'You have to submit a valid URL (start with http:// or https://).'
   end
 end

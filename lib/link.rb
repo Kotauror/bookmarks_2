@@ -27,7 +27,6 @@ class Link
     DatabaseConnection.query("DELETE FROM comments WHERE link_id='#{id}'")
     DatabaseConnection.query("DELETE FROM link_tags WHERE link_id='#{id}'")
     DatabaseConnection.query("DELETE FROM links WHERE title='#{title}'")
-
   end
 
   def self.update(title, new_title, new_url)
@@ -38,7 +37,7 @@ class Link
   private
 
   def self.is_url?(url)
-    url[0..6] == 'http://' || url[0..2] == 'www'
+    url[0..6] == 'http://' || url[0..7] == 'https://'
   end
 
   def self.is_title?(title)

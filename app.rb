@@ -28,7 +28,7 @@ class BookmarkManager < Sinatra::Base
 
   post '/bookmarks/new' do
     redirect '/bookmarks' if Link.add(params[:url], params[:title])
-    flash[:notice] = "You have to submit a valid URL (start with www or http://)."
+    flash[:notice] = "You have to submit a valid URL (start with http:// or https://)."
     redirect '/bookmarks/new'
   end
 
@@ -53,7 +53,7 @@ class BookmarkManager < Sinatra::Base
       redirect ('/bookmarks/edit')
     end
     if Link.is_url?(params[:new_url]) == false
-      flash[:notice] = "You have to submit a valid URL (start with www or http://)."
+      flash[:notice] = "You have to submit a valid URL (start with http:// or https://)."
       redirect ('/bookmarks/edit')
     end
   end

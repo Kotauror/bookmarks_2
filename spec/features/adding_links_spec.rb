@@ -14,7 +14,7 @@ feature "adding links" do
     click_button 'Add bookmark'
     fill_in 'url', with: 'TEST'
     click_button 'Submit'
-    expect(page).to have_content "You have to submit a valid URL (start with www or http://)."
+    expect(page).to have_content "You have to submit a valid URL (start with http:// or https://)."
   end
 
 end
